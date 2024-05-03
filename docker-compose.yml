@@ -1,0 +1,24 @@
+services:
+
+  priviblur:
+    image: quay.io/pussthecatorg/priviblur:latest
+    container_name: priviblur
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:8000" # Replace with "8000:8000" if you don't use a reverse proxy
+    volumes:
+      - ./config.toml:/priviblur/config.toml:Z,ro
+
+  priviblur-redis:
+    image: redis:6.2-alpine
+    container_name: priviblur-redis
+    command: redis-server --loglevel warning
+    volumes:
+      - ./redis:/data
+    restart: unless-stopped
+    user: "999:1000"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
