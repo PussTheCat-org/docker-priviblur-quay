@@ -9,7 +9,8 @@ services:
     volumes:
       - ./config.toml:/priviblur/config.toml:Z,ro
 
-  priviblur-redis:
+# Redis is technically optional but is used for caching
+  priviblur-redis: 
     image: redis:6.2-alpine
     container_name: priviblur-redis
     command: redis-server --loglevel warning
