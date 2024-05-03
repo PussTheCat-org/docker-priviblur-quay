@@ -1,4 +1,4 @@
-# priviblur-quay
+# docker-priviblur-quay
 
 A [Priviblur](https://github.com/syeopite/priviblur) image, on Quay.
 
