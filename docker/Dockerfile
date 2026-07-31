@@ -1,4 +1,4 @@
-FROM alpine:3.21
+FROM alpine:3.23
 WORKDIR /priviblur
 
 RUN apk add --no-cache git python3 py3-pip py3-setuptools tini && \
