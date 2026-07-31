@@ -1,4 +1,4 @@
-FROM alpine:3.23
+FROM alpine:3.24
 WORKDIR /priviblur
 
 RUN apk add --no-cache git python3 py3-pip py3-setuptools tini && \
@@ -7,6 +7,7 @@ RUN apk add --no-cache git python3 py3-pip py3-setuptools tini && \
     git clone --depth=1 https://github.com/syeopite/priviblur.git . && \
     pip3 install --no-cache-dir --break-system-packages -r requirements.txt && \
     pip3 cache purge && \
+    apk del py3-pip && \
     pybabel compile -d locales -D priviblur && \
     chown -R priviblur:priviblur /priviblur && \
     git config --global --add safe.directory /priviblur
