@@ -1,16 +1,15 @@
 services:
-
   priviblur:
     image: quay.io/pussthecatorg/priviblur:latest
     container_name: priviblur
     restart: unless-stopped
     ports:
-      - "127.0.0.1:8000:8000" # Replace with "8000:8000" if you don't use a reverse proxy
+      - "127.0.0.1:8000:8000" # Replace with "8000:8000" if you don't use a reverse proxy
     volumes:
       - ./config.toml:/priviblur/config.toml:Z,ro
 
-# Redis is technically optional but is used for caching
-  priviblur-redis: 
+  # Redis is technically optional but is used for caching
+  priviblur-redis:
     image: redis:8.10-alpine
     container_name: priviblur-redis
     command: redis-server --loglevel warning
