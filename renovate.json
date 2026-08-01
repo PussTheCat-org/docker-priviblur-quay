@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "local>PussTheCat-org/docker-priviblur-quay//.github/renovate/ci.json",
+    "local>PussTheCat-org/docker-priviblur-quay//.github/renovate/docker.json"
+  ]
+}
