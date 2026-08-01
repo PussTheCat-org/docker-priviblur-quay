@@ -2,8 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": "Group all Docker image updates (Dockerfile + compose) into a single PR",
-      "matchManagers": ["dockerfile", "docker-compose"],
+      "description": "Group Docker image updates from Dockerfile into a single PR",
+      "matchManagers": ["dockerfile"],
       "groupName": "Docker images",
       "separateMajorMinor": false
     }
